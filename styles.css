@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('letra.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 300px auto;
+    background-color: #f2f5f7;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+.resultado {
+    margin-top: 500px;
+    text-align: center;
+    background-image: url(letra.jpg);
+   background-size: cover;
+}
+.resultado p {
+    font-size: 50px;
+    color:#0B0C0D ;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 30px;
+    color: #1b30cf;
+    margin-bottom: 60px;
+}
+
+label {
+    font-weight: bold;
+    color: #1b30cf;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color:#1b30cf;
+    color: #f2f5f7;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 10px; 
+}
+
+input[type="submit"]:hover {
+    background-color:#45a049;
+    
+}
