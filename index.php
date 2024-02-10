@@ -17,10 +17,5 @@
         <input type="submit" value="Buscar"></a></li>
     </form>
     </div>
-    <div class="resultado">
-        <p>Palabras encontradas: <?php echo implode (',',$resultado['encontradas']); ?></p>
-        <p>Palabras no encontradas: <?php echo implode (',',$resultado['noencontradas']); ?></p>
-    </div>
-  
 </body> 
 </html>
