@@ -78,18 +78,7 @@ function buscarPalabras($palabras, $matriz) {
 
     return [
         'encontradas' => $encontradas,
-        'noEncontradas' => $noEncontradas
+        'noencontradas' => $noEncontradas
     ];
 }
-
-// Obtener las palabras y la matriz de letras del formulario
-$palabras = isset($_POST['palabras']) ? $_POST['palabras'] : '';
-$matriz = isset($_POST['matriz']) ? $_POST['matriz'] : '';
-
-// Buscar las palabras en la sopa de letras
-$resultado = buscarPalabras($palabras, $matriz);
-
-// Imprimir el resultado
-echo "Palabras encontradas: " . implode(', ', $resultado['encontradas']) . "<br>";
-echo "Palabras no encontradas: " . implode(', ', $resultado['noEncontradas']);
-?>
+ 

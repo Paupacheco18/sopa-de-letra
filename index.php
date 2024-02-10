@@ -9,7 +9,7 @@
   
     <div class="container">
     <h2>Buscador de Palabras en Sopa de Letras</h2>
-    <form action="buscar_palabras.php" method="post">
+    <form action="resultado.php" method="post">
         <label for="palabras">Ingrese las palabras separadas por coma:</label><br>
         <input type="text" id="palabras" name="palabras" required><br>
        <label for="matriz">Ingrese la matriz de letras separadas por coma:</label><br>
