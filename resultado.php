@@ -17,10 +17,12 @@ $resultado = buscarPalabras($palabras, $matriz);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscador de Palabras</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
 <body>
     <div class="resultado">
-        <p>Palabras encontradas: <?php echo implode (',',$resultado['encontradas']); ?></p>
-        <p>Palabras no encontradas: <?php echo implode (',',$resultado['noencontradas']); ?></p>
+        <p>Palabras encontradas: <?php echo implode(',', $resultado['encontradas']); ?></p>
+        <p>Palabras no encontradas: <?php echo implode(',', $resultado['noencontradas']); ?></p>
     </div>
   
 </body> 

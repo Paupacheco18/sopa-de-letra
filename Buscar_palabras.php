@@ -1,35 +1,40 @@
 <?php
+
 function buscarPalabras($palabras, $matriz) {
     $encontradas = [];
     $noEncontradas = [];
 
     // Convertir la matriz de letras en un array bidimensional
-    $matriz = preg_replace('/\s+/', '', $matriz); // Eliminar espacios en blanco
-    $matriz = trim($matriz, ","); // Eliminar comas al inicio y final    
-    $sopa = array_map('str_split', preg_split('/\R/', $matriz));
+    $sopa = [];
+    $filas = explode("\n", trim($matriz));
+    foreach ($filas as $fila) {
+        $sopa[] = str_replace(",", "", trim($fila));
+    }
 
     // Convertir las palabras en un array
     $palabras = explode(",", strtoupper($palabras));
+
+    // Calcular el número de columnas y filas
+    $numFilas = count($sopa);
+    $numColumnas = strlen($sopa[0]);
 
     foreach ($palabras as $palabra) {
         $encontrada = false;
         $palabra = trim($palabra);
 
         // Verificar horizontalmente
-        foreach ($sopa as $fila) {
-            $filaTexto = implode('', $fila);
-            if (strpos($filaTexto, $palabra) !== false) {
+        for ($i = 0; $i < $numFilas; $i++) {
+            if (strpos($sopa[$i], $palabra) !== false) {
                 $encontrada = true;
                 break;
             }
         }
 
         // Verificar verticalmente
-        $columnas = count($sopa[0]);
-        for ($i = 0; $i < $columnas; $i++) {
+        for ($i = 0; $i < $numColumnas; $i++) {
             $columnaTexto = '';
-            foreach ($sopa as $fila) {
-                $columnaTexto .= $fila[$i];
+            for ($j = 0; $j < $numFilas; $j++) {
+                $columnaTexto .= $sopa[$j][$i];
             }
             if (strpos($columnaTexto, $palabra) !== false) {
                 $encontrada = true;
@@ -37,13 +42,13 @@ function buscarPalabras($palabras, $matriz) {
             }
         }
 
-        // Verificar diagonalmente (izquierda a derecha)
-        for ($i = 0; $i < count($sopa); $i++) {
-            for ($j = 0; $j < $columnas; $j++) {
+        // Verificar diagonales (de izquierda a derecha)
+        for ($i = 0; $i < $numFilas; $i++) {
+            for ($j = 0; $j < $numColumnas; $j++) {
                 $diagonalTexto = '';
                 $k = $i;
                 $l = $j;
-                while ($k < count($sopa) && $l < $columnas) {
+                while ($k < $numFilas && $l < $numColumnas) {
                     $diagonalTexto .= $sopa[$k++][$l++];
                 }
                 if (strpos($diagonalTexto, $palabra) !== false) {
@@ -53,13 +58,13 @@ function buscarPalabras($palabras, $matriz) {
             }
         }
 
-        // Verificar diagonalmente (derecha a izquierda)
-        for ($i = 0; $i < count($sopa); $i++) {
-            for ($j = $columnas - 1; $j >= 0; $j--) {
+        // Verificar diagonales (de derecha a izquierda)
+        for ($i = 0; $i < $numFilas; $i++) {
+            for ($j = $numColumnas - 1; $j >= 0; $j--) {
                 $diagonalTexto = '';
                 $k = $i;
                 $l = $j;
-                while ($k < count($sopa) && $l >= 0) {
+                while ($k < $numFilas && $l >= 0) {
                     $diagonalTexto .= $sopa[$k++][$l--];
                 }
                 if (strpos($diagonalTexto, $palabra) !== false) {
@@ -81,4 +86,3 @@ function buscarPalabras($palabras, $matriz) {
         'noencontradas' => $noEncontradas
     ];
 }
- 
